@@ -1,0 +1,51 @@
+set age to 30
+
+if age is greater than 18 then
+    print "you are good to go"
+else
+    if age is less than 28 then
+    print "why"
+else
+    if age is greater than 18 then
+        print "You are an adult"
+else
+    if age is 30 then
+        print "correct"
+        end if
+        end if
+    end if
+end if
+
+-- maths
+print ""
+set y to 30
+set e to 50
+set diff to e - y
+    print "e - y: " + diff
+
+--counting
+print ""
+loop from 3 to 5 do
+    set result to 3 * 6
+        print "3 * 6 = " + result
+end loop
+
+--range
+set score to 85
+
+if score is greater than 90 then
+    print "Grade: A"
+else
+    if score is greater than 80 then
+        print "Grade: B"
+    else
+        if score is greater than 70 then
+            print "Grade: C"
+        else
+            print "Grade: F"
+        end if
+    end if
+end if
+
+set s to "abcdef"
+print "s[1:4] -> " s[1:4]

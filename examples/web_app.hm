@@ -1,0 +1,30 @@
+-- Human web app example
+-- Run with: human examples/web_app.hm
+
+define home_handler with request
+    set body to "<h1>Human Web App</h1><p>Powered by KielTech!</p>"
+    return http_response(200, body)
+end define
+
+define api_handler with request
+    set data to {message: "Hello from Human", status: "ok"}
+    return http_response(200, json_stringify(data))
+end define
+
+define user_handler with request
+    set body to "<h1>User Handler</h1><p>Route parameters working!</p>"
+    return http_response(200, body)
+end define
+
+print "Starting Human Web Server on http://127.0.0.1:8080"
+print "Routes:"
+print "  GET / - Home page"
+print "  GET /api - JSON API"
+print "  GET /users/123 - User detail page"
+print ""
+
+http_route("GET", "/", "home_handler")
+http_route("GET", "/api", "api_handler")
+http_route("GET", "/users/:id", "user_handler")
+
+http_listen("127.0.0.1", 8080)

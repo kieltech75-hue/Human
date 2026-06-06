@@ -1,0 +1,128 @@
+Metadata-Version: 2.4
+Name: human-language
+Version: 0.1.0
+Summary: A custom programming language with plain English syntax
+Home-page: https://github.com/yourusername/human-language
+Author: KielTech
+Author-email: KielTech <info@kieltech.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/human-language
+Project-URL: Repository, https://github.com/yourusername/human-language
+Project-URL: Issues, https://github.com/yourusername/human-language/issues
+Keywords: language,interpreter,compiler,programming
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Interpreters
+Classifier: Topic :: Software Development :: Compilers
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+
+# Human Programming Language
+
+**Created and owned by KielTech**
+
+A human-friendly programming language with plain English syntax.
+
+## Overview
+
+**Human** is an interpreted/compiled language that prioritizes readability and naturalness. It uses plain English constructs with minimal keywords.
+
+## File Extension
+
+`.hm` - Human Language files
+
+## Quick Example
+
+```
+print "Hello, World!"
+
+set age to 25
+if age is greater than 18
+    print "You are an adult"
+end if
+
+define greet with name
+    print "Hello, " + name + "!"
+end define
+
+greet "Alice"
+```
+
+## Project Structure
+
+- `lexer.py` - Tokenizes Human language source code
+- `parser.py` - Parses tokens into an abstract syntax tree (AST)
+- `compiler.py` - Compiles AST to bytecode
+- `vm.py` - Virtual machine that executes bytecode
+- `interpreter.py` - Main interpreter/entry point
+- `examples/` - Example .hm programs
+
+## Installation & Usage
+
+```bash
+python interpreter.py <file.hm>
+```
+
+## Language Features
+
+- **Variables**: `set x to 10`
+- **Arithmetic**: `+, -, *, /, %`
+- **Lists**: `[1, 2, 3]`
+- **Dictionaries**: `{name: "Alice", age: 30}`
+- **Indexing**: `data["name"]`, `numbers[0]`
+- **Conditionals**: `if ... then ... end if`
+- **While loops**: `while condition do ... end while`
+- **For loops**: `for item in list do ... end for`
+- **Functions**: `define myFunc with param1, param2 ... end define`
+- **Classes and objects**: `class`, `new`, `this`, method calls like `obj.method()`
+- **Imports**: `import "module.hm"`
+- **Exception handling**: `try ... catch err ... end try`
+- **Builtins**: `len()`, `range()`, `str()`, `int()`, `float()`, `type()`, `env()`, `file_read()`, `file_write()`, `file_exists()`, `path_join()`, `sleep()`, `call_python()`, `log()`, `http_get()`, `http_post()`, `http_put()`, `http_delete()`, `http_route()`, `http_middleware()`, `http_static()`, `http_listen()`, `http_listen_async()`, `http_response()`, `request_body()`, `request_json()`, `request_query()`, `request_headers()`, `request_method()`, `request_path()`, `json_parse()`, `json_stringify()`, `openai_request()`, `openai_chat()`
+- **Output**: `print "text"` or `print "Hello," name`
+- **Input**: `ask "prompt"`
+- **Comments**: `-- this is a comment`
+
+## AI App Helper Example
+
+```
+set key to env("OPENAI_API_KEY")
+set body to file_read("prompt.txt")
+set response to openai_request(key, body)
+print response
+```
+
+## Example project
+
+A sample AI app is available at `examples/ai_app.hm`:
+
+```
+python interpreter.py examples/ai_app.hm
+```
+
+A sample web app is available at `examples/web_app.hm`:
+
+```
+python interpreter.py examples/web_app.hm
+```
+
+## Syntax Highlighting
+
+The repository includes a VS Code language package for `*.hm` files.
+
+- `package.json` contains the extension manifest for Human syntax highlighting.
+- `human.tmLanguage.json` defines token patterns for comments, strings, numbers, booleans, keywords, operators, and identifiers.
+- `human-language-configuration.json` provides comment, bracket, auto-closing, and folding support.
+
+To use this in VS Code, open the workspace and run the Extension Development Host, or install the extension package from this folder.

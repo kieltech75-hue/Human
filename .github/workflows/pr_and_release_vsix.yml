@@ -1,0 +1,48 @@
+name: Build VSIX Artifact
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  release:
+    types: [published]
+
+jobs:
+  build-vsix:
+    name: Package VSIX
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies (if any)
+        run: |
+          if [ -f package.json ]; then npm ci --prefer-offline --no-audit --no-fund || true; fi
+
+      - name: Install vsce
+        run: npm install -g vsce
+
+      - name: Package extension (.vsix)
+        run: |
+          VSIX_NAME=human-language-${{ github.sha }}.vsix
+          vsce package -o "$VSIX_NAME"
+          echo "VSIX=$VSIX_NAME" >> $GITHUB_OUTPUT
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: human-vsix
+          path: human-language-${{ github.sha }}.vsix
+
+      - name: Comment on PR with run link
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+            const body = `A VSIX artifact was built for this PR. Download it from the Actions > Artifacts for this run:\n\n${runUrl}`;
+            github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.payload.pull_request.number, body });

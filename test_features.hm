@@ -1,0 +1,37 @@
+set numbers to [1, 2, 3, 4]
+print "numbers:", numbers
+set data to {name: "Alice", age: 30}
+print "name:", data["name"], "age:", data["age"]
+
+define sum with a, b
+    return a + b
+end define
+
+set result to sum(10, 20)
+print "sum:", result
+
+set total to 0
+for n in numbers do
+    set total to total + n
+end for
+print "total:", total
+
+set count to 0
+while count is less than 3 do
+    print "count is", count
+    set count to count + 1
+end while
+
+class Person
+    define init with name, age
+        set this["name"] to name
+        set this["age"] to age
+    end define
+
+    define greet
+        print "Hello,", this["name"], "age", this["age"]
+    end define
+end class
+
+set p to new Person("Claire", 28)
+p.greet()

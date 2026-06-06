@@ -1,0 +1,16 @@
+-- Fibonacci Sequence Generator
+-- Prints the first 10 Fibonacci numbers
+
+set a to 0
+set b to 1
+
+print "Fibonacci Sequence:"
+print a
+print b
+
+loop from 1 to 8 do
+    set temp to a + b
+    print temp
+    set a to b
+    set b to temp
+end loop

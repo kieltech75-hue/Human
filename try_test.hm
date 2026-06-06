@@ -1,0 +1,8 @@
+try
+    set x to 10
+    set y to 0
+    set z to x / y
+    print "never reached"
+catch err
+    print "caught error:", err
+end try

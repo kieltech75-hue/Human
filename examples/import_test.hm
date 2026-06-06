@@ -1,0 +1,10 @@
+-- Import the example module and use its contents
+-- Import the example module and use its contents
+import "examples/mymodule.hm"
+
+-- Access variable from module
+print "module_var from mymodule:" module_var
+
+-- Call function
+greet("World")
+

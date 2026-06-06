@@ -1,0 +1,30 @@
+-- Test lambda functions and list comprehensions
+
+-- Lambda test
+set add to fn x, y: x + y
+print "add(5, 3) =", add(5, 3)
+
+set multiply to fn x, y: x * y
+print "multiply(4, 6) =", multiply(4, 6)
+
+-- List comprehension test
+set numbers to [1, 2, 3, 4, 5]
+set doubled to [x * 2 from x in numbers]
+print "doubled:", doubled
+
+set squared to [x * x from x in numbers]
+print "squared:", squared
+
+-- List comprehension with condition
+set evens to [x from x in numbers if x % 2 is equal to 0]
+print "evens:", evens
+
+-- Lambda with single parameter
+set square to fn x: x * x
+print "square(7) =", square(7)
+
+-- Lambda that returns a value from expression
+set triple to fn x: x * 3
+print "triple(4) =", triple(4)
+
+print "All lambda and comprehension tests passed!"

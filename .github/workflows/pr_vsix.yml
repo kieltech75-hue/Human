@@ -1,0 +1,41 @@
+name: PR VSIX artifact
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install vsce
+        run: |
+          npm install -g vsce
+      - name: Package VSIX
+        run: |
+          vsce package
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: human-vsix-pr
+          path: '*.vsix'
+      - name: Comment PR with artifact link
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request.number;
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/runs/${process.env.GITHUB_RUN_ID}`;
+            const artifactName = 'human-vsix-pr';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr,
+              body: `Build artifact for this PR: [workflow run](${runUrl}). Download the \`${artifactName}\` artifact from the workflow run's Artifacts section.`
+            });

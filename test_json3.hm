@@ -1,0 +1,3 @@
+set raw to "{"name": "Alice", "age": 30}"
+set obj to json_parse(raw)
+print obj

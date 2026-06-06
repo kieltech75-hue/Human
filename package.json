@@ -1,0 +1,47 @@
+{
+  "name": "human-language",
+  "displayName": "Human Language",
+  "description": "Syntax highlighting and language support for the Human programming language.",
+  "version": "0.1.0",
+  "publisher": "KielTech",
+  "author": {
+    "name": "KielTech",
+    "email": "kieltech75@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kieltech75-hue/Human"
+  },
+  "homepage": "https://github.com/kieltech75-hue/Human",
+  "bugs": {
+    "url": "https://github.com/kieltech75-hue/Human/issues"
+  },
+  "keywords": ["human", "language", "syntax", "highlighting", "hm"],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "human",
+        "aliases": ["Human", "human"],
+        "extensions": [".hm"],
+        "configuration": "human-language-configuration.json",
+        "icon": {
+          "light": "./human-icon.png",
+          "dark": "./human-icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "human",
+        "scopeName": "source.hm",
+        "path": "human.tmLanguage.json"
+      }
+    ]
+  }
+}

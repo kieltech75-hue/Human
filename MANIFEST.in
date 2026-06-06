@@ -1,0 +1,9 @@
+include README.md
+include LICENSE
+include human_language/README.md
+include human_language/LICENSE
+include README.md
+include LICENSE
+include CHANGELOG.md
+recursive-include examples *.hm
+recursive-include human_language *.py

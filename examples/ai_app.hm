@@ -1,0 +1,43 @@
+-- Human AI Application Example
+-- Demonstrates integration with OpenAI API
+
+print "Human AI Application"
+print "==================="
+print ""
+
+-- Set your OpenAI API key via environment variable
+-- export OPENAI_API_KEY=sk-...
+set api_key to env("OPENAI_API_KEY")
+
+if api_key is equal to ""
+    print "Error: Set OPENAI_API_KEY environment variable"
+    print "Example: export OPENAI_API_KEY=sk-your-key-here"
+else
+    print "✓ API Key configured"
+    print ""
+    print "Demonstrating AI capabilities:"
+    print ""
+    
+    -- Example 1: Simple greeting
+    print "[Example 1] Simple Greeting"
+    print "Prompt: What is your name?"
+    set greeting to openai_chat("gpt-4", "What is your name?")
+    print "Response: " + greeting
+    print ""
+    
+    -- Example 2: Question answering
+    print "[Example 2] Question Answering"
+    print "Prompt: Explain machine learning in one sentence"
+    set explanation to openai_chat("gpt-4", "Explain machine learning in one sentence")
+    print "Response: " + explanation
+    print ""
+    
+    -- Example 3: Code generation
+    print "[Example 3] Code Generation"
+    print "Prompt: Write a Python function that adds two numbers"
+    set code to openai_chat("gpt-4", "Write a Python function that adds two numbers")
+    print "Response: " + code
+    print ""
+    
+    print "✓ AI Application Demo Complete!"
+end if

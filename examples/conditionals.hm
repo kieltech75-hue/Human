@@ -1,0 +1,20 @@
+-- Conditionals
+set age to 25
+
+if age is greater than 18 then
+    print "You are an adult"
+else
+    print "You are a minor"
+end if
+
+set score to 85
+
+if score is greater than 90 then
+    print "Grade: A"
+else
+    if score is greater than 80 then
+        print "Grade: B"
+    else
+        print "Grade: C or lower"
+    end if
+end if

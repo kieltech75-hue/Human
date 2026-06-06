@@ -1,0 +1,13 @@
+-- SciPy integration test
+set mod to py_import("scipy.linalg")
+set mat to [[1,2],[3,4]]
+set d to py_call(mod, "det", [mat])
+set results to {"det": d}
+
+-- Compute eigenvalues/eigenvectors using helper wrapper that returns JSON-friendly lists
+set helper to py_import("tools.scipy_helper")
+set eigres to py_call(helper, "eig_json", [mat])
+set results["eig"] to eigres
+
+print "det ->" d
+print json_stringify(results)

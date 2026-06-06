@@ -1,0 +1,57 @@
+name: Compat CI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *' # nightly at 03:00 UTC
+
+jobs:
+  compat:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: [3.9, 3.10, 3.11, 3.12, 3.13, 3.14]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            %USERPROFILE%\\AppData\\Local\\pip\\Cache
+          key: ${{ matrix.os }}-python-${{ matrix.python-version }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ matrix.os }}-python-${{ matrix.python-version }}-pip-
+            ${{ matrix.os }}-pip-
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+      - name: Run health check
+        run: |
+          python scripts/health_check.py
+      - name: Validate py_import policy (strict)
+        env:
+          HUMAN_PY_IMPORT_ENABLED: '1'
+        run: |
+          python scripts/validate_import_policy.py
+      - name: Run pytest
+        run: |
+          python -m pytest -q
+      - name: Run example tests
+        run: |
+          python -m human_language examples/numby_test.hm
+      - name: Build Docker image
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          docker build -t human-ci:latest .
+      - name: Run health-check in Docker container
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          docker run --rm human-ci:latest python scripts/health_check.py

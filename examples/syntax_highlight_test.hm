@@ -1,0 +1,42 @@
+-- Syntax Highlighting Test for Human Language
+
+set number to 42
+set pi to 3.14
+set name to "Alice"
+set greeting to 'Hello, World!'
+set is_active to true
+set data to {name: name, age: number}
+
+print "This is a string", number, pi, is_active
+
+if number is greater than 10 then
+    print "Greater than 10"
+else
+    print "Not greater"
+end if
+
+for item in [1, 2, 3] do
+    print item
+end for
+
+class Person 
+    define init with name, age
+        set this["name"] to name
+        set this["age"] to age
+    end define
+    define greet
+        print "Hello,", this["name"]
+    end define
+end class
+
+set p to new Person("Bob", 30)
+p.greet()
+
+try
+    set x to 1 / 0
+catch err
+    print err
+end try
+
+import "utils.hm"
+ask "What is your name?"

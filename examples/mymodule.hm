@@ -1,0 +1,16 @@
+-- Example module: defines a function, a variable, and a class
+set module_var to 42
+
+define greet with name
+    print "Hello," name
+end define
+
+class Counter
+    set count to 0
+    define inc with this
+        set this.count to this.count + 1
+        return this.count
+    end define
+end class
+
+-- Exported names are available when imported (module system mirrors Python-like behavior)

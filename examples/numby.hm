@@ -1,0 +1,34 @@
+-- Human module providing simple numpy-backed helpers via call_python
+
+-- Prefer VM-level Python interop when available
+set __np_mod to py_import("numpy")
+
+define np_sum with lst
+    set res to py_call(__np_mod, "sum", [lst])
+    return res
+end define
+
+define np_mean with lst
+    set res to py_call(__np_mod, "mean", [lst])
+    return res
+end define
+
+define np_matmul with a, b
+    set res to py_call(__np_mod, "matmul", [[a, b]])
+    return res
+end define
+
+define np_reshape with data, shape
+    set res to py_call(__np_mod, "reshape", [data, shape])
+    return res
+end define
+
+define np_dot with a, b
+    set res to py_call(__np_mod, "dot", [a, b])
+    return res
+end define
+
+define np_transpose with a
+    set res to py_call(__np_mod, "transpose", [a])
+    return res
+end define

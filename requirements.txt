@@ -1,0 +1,11 @@
+# Python 3.8+
+# Production dependencies (pinned for reproducible builds)
+numpy==2.4.6
+pandas==3.0.3
+
+# Small TOML parser used for project config on older Python versions
+tomli==2.0.1
+
+# Development dependencies
+pytest==9.0.3
+scipy==1.17.1

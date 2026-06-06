@@ -1,0 +1,2 @@
+[console_scripts]
+human = human_language.cli:main

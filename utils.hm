@@ -1,0 +1,3 @@
+define greet with name
+    print "Hello from utils,", name
+end define

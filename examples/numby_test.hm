@@ -1,0 +1,30 @@
+-- Demo using examples/numby.hm
+import "examples/numby.hm"
+
+set lst to [1, 2, 3, 4]
+set s to np_sum(lst)
+set m to np_mean(lst)
+-- Collect results into a structure for machine-readable output
+set results to {"np_sum": s, "np_mean": m}
+ 
+ -- Matrix multiply example
+ set a to [[1,2],[3,4]]
+ set b to [[5,6],[7,8]]
+ set mm to np_matmul(a, b)
+set results["matmul"] to mm
+
+ -- Dot and transpose
+ set d to np_dot([1,2,3], [4,5,6])
+set results["dot"] to d
+set t to np_transpose(a)
+set results["transpose"] to t
+
+-- Print human-readable lines for convenience
+print "np_sum ->" s
+print "np_mean ->" m
+print "matmul ->" mm
+print "dot ->" d
+print "transpose ->" t
+
+-- Emit structured JSON on a single line for tests
+print json_stringify(results)

@@ -1,0 +1,7 @@
+# Sample project-level configuration for Human
+# Copy to `human.toml` and edit as needed for your project.
+
+[py_import]
+enabled = true
+allowlist = ["numpy", "pandas"]
+fallback = ["numpy"]

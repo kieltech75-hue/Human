@@ -1,0 +1,6 @@
+﻿set raw to "{\"name\": \"Alice\", \"age\": 30}"
+set obj to json_parse(raw)
+print "Name:" obj["name"]
+print "Age:" obj["age"]
+set output to json_stringify(obj)
+print "Output:" output

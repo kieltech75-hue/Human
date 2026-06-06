@@ -1,0 +1,125 @@
+-- String Methods and New Builtins Test
+
+print "===== String Methods ====="
+set text to "Hello World"
+
+print ""
+print "[String Methods]"
+print "Original:", text
+
+set upper to text.upper()
+print "upper():", upper
+
+set lower to text.lower()
+print "lower():", lower
+
+set words to text.split(" ")
+print "split(' '):", words
+
+set replaced to text.replace("World", "Human")
+print "replace('World', 'Human'):", replaced
+
+set trimmed to "  hello  ".strip()
+print "strip():", "[" + trimmed + "]"
+
+set starts to text.startswith("Hello")
+print "startswith('Hello'):", starts
+
+set ends to text.endswith("World")
+print "endswith('World'):", ends
+
+set idx to text.find("o")
+print "find('o'):", idx
+
+set cnt to text.count("l")
+print "count('l'):", cnt
+
+set joined to "-".join(["a", "b", "c"])
+print "'-'.join(['a','b','c']):", joined
+
+print ""
+print "===== List Methods ====="
+set mylist to [1, 2, 3]
+
+print ""
+print "[List Methods]"
+print "Original:", mylist
+
+mylist.append(4)
+print "After append(4):", mylist
+
+set popped to mylist.pop()
+print "pop():", popped
+print "After pop():", mylist
+
+mylist.extend([5, 6])
+print "After extend([5,6]):", mylist
+
+set idx2 to mylist.index(3)
+print "index(3):", idx2
+
+set cnt2 to mylist.count(1)
+print "count(1):", cnt2
+
+set nums to [1, 2, 3]
+nums.reverse()
+print "After reverse():", nums
+
+print ""
+print "===== Dict Methods ====="
+set person to {name: "Alice", age: 30}
+
+print ""
+print "[Dict Methods]"
+print "Original:", person
+
+set keys to person.keys()
+print "keys():", keys
+
+set values to person.values()
+print "values():", values
+
+set name_val to person.get("name")
+print "get('name'):", name_val
+
+print ""
+print "===== New Builtin Functions ====="
+
+set nums2 to [3, 1, 4, 1, 5, 9, 2, 6]
+
+print ""
+print "[List Functions]"
+print "Original:", nums2
+
+set sorted_list to sorted(nums2)
+print "sorted():", sorted_list
+
+set min_val to min(nums2)
+print "min():", min_val
+
+set max_val to max(nums2)
+print "max():", max_val
+
+set sum_val to sum(nums2)
+print "sum():", sum_val
+
+set all_positive to all([1, 2, 3, 4])
+print "all([1,2,3,4]):", all_positive
+
+set any_zero to any([0, 1, 2])
+print "any([0,1,2]):", any_zero
+
+set rev_list to reversed(nums2)
+print "reversed():", rev_list
+
+print ""
+print "[Iteration Functions]"
+
+set pairs to enumerate(["a", "b", "c"])
+print "enumerate(['a','b','c']):", pairs
+
+set zipped to zip([1, 2, 3], ["a", "b", "c"])
+print "zip([1,2,3], ['a','b','c']):", zipped
+
+print ""
+print "===== All Tests Complete! ====="

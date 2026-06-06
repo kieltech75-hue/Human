@@ -1,0 +1,23 @@
+-- Prime Number Checker
+-- Checks if a number is prime
+
+set num to 17
+set is_prime to true
+set divisor to 2
+
+loop from 2 to num do
+    if num % divisor is equal to 0 then
+        if divisor is equal to num then
+            set is_prime to true
+        else
+            set is_prime to false
+        end if
+    end if
+    set divisor to divisor + 1
+end loop
+
+if is_prime then
+    print num + " is prime"
+else
+    print num + " is not prime"
+end if

@@ -1,0 +1,8 @@
+-- Variables and Arithmetic
+set x to 10
+set y to 20
+set z to x + y
+
+print "x is " + x
+print "y is " + y
+print "z is " + z

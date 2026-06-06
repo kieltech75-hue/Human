@@ -1,0 +1,3 @@
+import "utils.hm"
+set name to "Copilot"
+greet(name)

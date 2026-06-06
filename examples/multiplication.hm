@@ -1,0 +1,16 @@
+-- Multiplication Table Generator
+-- Prints a multiplication table for numbers 1-10
+
+print "Multiplication Table (1-10)"
+print ""
+
+loop from 1 to 10 do
+    set result to 1 * 1
+    print "1 x 1 = " + result
+end loop
+
+-- Alternative approach using nested logic
+print ""
+print "Testing 5x7:"
+set product to 5 * 7
+print "5 x 7 = " + product

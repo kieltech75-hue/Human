@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "human-language"
+version = "0.1.0"
+description = "A custom programming language with plain English syntax"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "KielTech", email = "info@kieltech.com"}
+]
+keywords = ["language", "interpreter", "compiler", "programming"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Interpreters",
+    "Topic :: Software Development :: Compilers",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/human-language"
+Repository = "https://github.com/yourusername/human-language"
+Issues = "https://github.com/yourusername/human-language/issues"
+
+[project.scripts]
+human = "human_language.cli:main"
