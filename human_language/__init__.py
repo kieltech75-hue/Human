@@ -6,7 +6,7 @@ Author: KielTech
 License: MIT
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "KielTech"
 __license__ = "MIT"
 
