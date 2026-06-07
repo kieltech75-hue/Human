@@ -86,8 +86,8 @@ def repl():
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python interpreter.py <file.hm>")
-        print("   or: python interpreter.py --repl")
+        print("Usage: human <file.hm>")
+        print("   or: human --repl")
         sys.exit(1)
     
     if sys.argv[1] == "--repl":

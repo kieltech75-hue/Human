@@ -57,7 +57,7 @@ human program.hm
 
 ```bash
 # Run without installation
-python interpreter.py program.hm
+human program.hm
 ```
 
 For detailed installation and setup instructions, see [INSTALLATION.md](INSTALLATION.md)
@@ -95,7 +95,7 @@ print response
 A sample AI app is available at `examples/ai_app.hm`:
 
 ```
-python interpreter.py examples/ai_app.hm
+human examples/ai_app.hm
 ```
 
 A sample web app is available at `examples/web_app.hm`:

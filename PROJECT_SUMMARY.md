@@ -7,8 +7,8 @@ A fully functional, plain English programming language compiler and interpreter 
 ### Core Files (10 files)
 
 1. **interpreter.py** - Main entry point
-   - Run `.hm` files: `python interpreter.py program.hm`
-   - Interactive REPL: `python interpreter.py --repl`
+   - Run `.hm` files: `human program.hm`
+   - Interactive REPL: `human --repl`
 
 2. **lexer.py** - Tokenization (900+ lines)
    - Converts source code to tokens
@@ -90,10 +90,10 @@ A fully functional, plain English programming language compiler and interpreter 
 
 ```bash
 # Run a program
-python interpreter.py examples/hello_world.hm
+human examples/hello_world.hm
 
 # Try the REPL
-python interpreter.py --repl
+human --repl
 
 # Write your own program (create myprogram.hm)
 set x to 10
@@ -103,7 +103,7 @@ if x is greater than 5 then
 end if
 
 # Run it
-python interpreter.py myprogram.hm
+human myprogram.hm
 ```
 
 ## Folder Structure
@@ -202,7 +202,7 @@ end loop
 Run this to verify everything works:
 
 ```bash
-python interpreter.py examples/hello_world.hm
+human examples/hello_world.hm
 ```
 
 You should see:

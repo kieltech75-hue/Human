@@ -5,10 +5,7 @@
 Successfully converted the Human Programming Language from a direct-execution model to a distributable, installable Python package with a global `human` command.
 
 ### Before
-Users had to run programs like:
-```bash
-python interpreter.py program.hm
-```
+Users had to run programs using the legacy interpreter entrypoint.
 
 ### After
 Users can now run programs like:

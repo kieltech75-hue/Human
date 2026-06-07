@@ -172,10 +172,10 @@ To test changes:
 ```bash
 # Create a test file: test_feature.hm
 # Run the interpreter
-python interpreter.py test_feature.hm
+human test_feature.hm
 
 # Or use REPL
-python interpreter.py --repl
+human --repl
 ```
 
 ## Common Issues and Solutions

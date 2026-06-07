@@ -10,12 +10,12 @@
 
 ### Run a .hm file
 ```bash
-python interpreter.py program.hm
+human program.hm
 ```
 
 ### Interactive REPL
 ```bash
-python interpreter.py --repl
+human --repl
 ```
 
 ## Your First Program
@@ -28,7 +28,7 @@ print "Hello, World!"
 
 Run it:
 ```bash
-python interpreter.py hello.hm
+human hello.hm
 ```
 
 ## Example 1: Variables

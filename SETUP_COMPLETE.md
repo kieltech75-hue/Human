@@ -9,9 +9,7 @@ Successfully implemented the `human` command for running Human language programs
 ## What Users Can Now Do
 
 ### Before This Session
-```bash
-python interpreter.py program.hm
-```
+The interpreter was run using the legacy direct-execution flow.
 
 ### After This Session
 ```bash
