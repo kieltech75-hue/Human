@@ -3,8 +3,8 @@
 ## Running Programs
 
 ```bash
-python interpreter.py program.hm          # Run a program
-python interpreter.py --repl              # Interactive mode
+human program.hm          # Run a program
+human --repl              # Interactive mode
 ```
 
 ## Variables

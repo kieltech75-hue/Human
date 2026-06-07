@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.whl
+*.tar.gz
+
+# VS Code
+.vscode/
+
+# VSCE / extension package
+*.vsix
+
+# OS files
+*.lnk
+.DS_Store
+Thumbs.db

@@ -1,0 +1,32 @@
+name: Build VSIX artifact
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install npm dependencies (if any)
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm i --no-audit --no-fund || true; fi
+
+      - name: Package VSIX
+        run: npx --yes vsce package
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: human-language-vsix
+          path: '*.vsix'
