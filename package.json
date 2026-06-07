@@ -2,7 +2,7 @@
   "name": "human-language",
   "displayName": "Human Language",
   "description": "Syntax highlighting and language support for the Human programming language.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "icon": "human-icon.png",
   "publisher": "KielTech",
   "author": {

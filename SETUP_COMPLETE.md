@@ -35,10 +35,10 @@ Created proper Python package with:
 - Console script entry point: `human = human_language.cli:main`
 
 ### 3. **Installation System** ✅
-- One-command installation: `pip install -e .`
+- One-command installation: `pip install human-language`
 - Creates global `human` command
 - Works from any directory
-- Development-friendly (editable mode)
+- Development-friendly (editable mode with `pip install -e .`)
 
 ### 4. **Documentation** ✅
 Created comprehensive guides:
@@ -116,7 +116,7 @@ All tests passing with new `human` command:
 - File operations and JSON parsing
 
 ### Developer Experience ✅
-- Simple installation: `pip install -e .`
+- Simple installation: `pip install human-language`
 - Global command: `human program.hm`
 - Works from any directory
 - Syntax highlighting in VS Code (extension available)
@@ -128,7 +128,7 @@ All tests passing with new `human` command:
 
 ### Installation
 ```bash
-pip install -e .
+pip install human-language
 ```
 
 ### Usage

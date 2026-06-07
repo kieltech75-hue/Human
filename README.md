@@ -46,8 +46,8 @@ greet "Alice"
 ### Quick Install (Recommended)
 
 ```bash
-# Install globally as a command-line tool
-pip install -e .
+# Install globally from PyPI
+pip install human-language
 
 # Then run any .hm file from anywhere
 human program.hm

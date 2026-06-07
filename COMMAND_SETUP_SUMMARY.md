@@ -47,9 +47,9 @@ All core modules updated to use relative imports (`from .module import ...`) ins
 
 ### 5. Installation Method
 ```bash
-pip install -e .
+pip install human-language
 ```
-- Development mode (-e flag) allows source edits without reinstalling
+- Installs the published package from PyPI
 - Creates `human` command in Python's Scripts directory
 - Works globally from any terminal
 
@@ -102,7 +102,7 @@ All tests pass with the new command:
 ### Installation
 ```bash
 cd path/to/human-language
-pip install -e .
+pip install human-language
 ```
 
 ### Running Programs
@@ -147,7 +147,7 @@ pip install --force-reinstall -e .
 
 ## Notes for Users
 
-After `pip install -e .`, users get:
+After `pip install human-language`, users get:
 - Global `human` command available in any terminal
 - Ability to run .hm files from anywhere
 - Package installable via PyPI (when ready)

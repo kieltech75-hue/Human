@@ -2,19 +2,21 @@
 
 ## Installation
 
-### Option 1: Development Installation (Recommended for Development)
+### Option 1: Development Installation (for Contributors)
 ```bash
 pip install -e .
 ```
 
-This installs the package in development mode, allowing you to modify the code and test immediately.
+Use this only if you are contributing to the project and want local source changes to take effect immediately.
 
-### Option 2: Standard Installation
+### Option 2: Standard Installation (Recommended for End Users)
 ```bash
-pip install .
+pip install human-language
 ```
 
-This creates a standard installation of the package.
+This installs the published package from PyPI.
+
+This installs the published package from PyPI.
 
 ### Verify Installation
 After installation, verify the `human` command is available:
@@ -145,13 +147,23 @@ MANIFEST.in              # Packaging manifest
 ## Troubleshooting
 
 ### Command not found
-If you get "human: command not found", reinstall the package:
+If you get "human: command not found", reinstall the published package:
+```bash
+pip install --force-reinstall human-language
+```
+
+If you are a contributor and need editable mode, use:
 ```bash
 pip install --force-reinstall -e .
 ```
 
 ### Import errors
-If you see module import errors, ensure you're in the correct directory and the package is properly installed:
+If you see module import errors, ensure the package is installed and your environment is correct:
+```bash
+pip install human-language
+```
+
+For development contributors, editable mode can also be used for instant local changes:
 ```bash
 pip install -e .
 ```
