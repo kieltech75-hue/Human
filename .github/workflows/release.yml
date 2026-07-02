@@ -1,0 +1,89 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-release-assets:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows
+            asset-name: windows-human-language-setup.exe
+            output-dir: dist/windows
+          - os: ubuntu-latest
+            platform: linux
+            asset-name: linux-human-language
+            output-dir: dist/linux
+          - os: macos-latest
+            platform: macos
+            asset-name: macos-human-language
+            output-dir: dist/macos
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pyinstaller
+
+      - name: Build native executable
+        run: |
+          python scripts/build_native_release_asset.py --platform ${{ matrix.platform }} --output-dir ${{ matrix.output-dir }} --name ${{ matrix.asset-name }}
+
+      - name: Create Windows installer
+        if: matrix.platform == 'windows'
+        shell: pwsh
+        run: |
+          powershell -File scripts/build_windows_installer.ps1 -BinaryPath dist/windows/windows-human-language-setup.exe -OutputPath dist/windows/windows-human-language-installer.bat
+
+      - name: Make Linux and macOS binaries executable
+        if: matrix.platform != 'windows'
+        run: |
+          chmod +x "${{ matrix.output-dir }}/${{ matrix.asset-name }}"
+
+      - name: Upload release asset
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          body: |
+            ## Human v0.1.6
+            - Native desktop binaries for Windows, Ubuntu/Linux, and macOS
+            - Python package wheels published to PyPI for supported platforms
+            - Syntax-highlighting extension publishing placeholders prepared for OpenVSX and JetBrains Marketplace
+          files: |
+            ${{ matrix.output-dir }}/${{ matrix.asset-name }}
+            ${{ matrix.platform == 'windows' && format('{0}/windows-human-language-installer.bat', matrix.output-dir) || '' }}
+
+  publish-extensions:
+    runs-on: ubuntu-latest
+    needs: build-release-assets
+    steps:
+      - name: Placeholder OpenVSX publish step
+        env:
+          OPENVSX_TOKEN: ${{ secrets.openvsx_token }}
+        run: |
+          echo "OpenVSX publish placeholder ready for token: $OPENVSX_TOKEN"
+
+      - name: Placeholder JetBrains publish step
+        env:
+          JETBRAINS_TOKEN: ${{ secrets.jetbrain_token }}
+        run: |
+          echo "JetBrains Marketplace publish placeholder ready for token: $JETBRAINS_TOKEN"

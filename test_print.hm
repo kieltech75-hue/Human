@@ -1,3 +1,4 @@
-set y to 40
-set t to 45
-print "x + y"
+set y to 30
+set e to 50
+set diff to e - y
+    print "e - y: " + diff
