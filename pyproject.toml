@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=45", "wheel"]
+requires = ["setuptools==68.2.2", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,7 +8,6 @@ version = "0.1.6"
 description = "A custom programming language with plain English syntax"
 readme = "README.md"
 requires-python = ">=3.9"
-license = "MIT"
 authors = [
     {name = "KielTech", email = "info@kieltech.com"}
 ]
