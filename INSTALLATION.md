@@ -2,6 +2,13 @@
 
 ## Installation
 
+### Option 0: Download a published release (fastest)
+If you want to run Human without installing Python, download a prebuilt artifact from [GitHub Releases v0.1.6](https://github.com/kieltech75-hue/Human/releases/tag/v0.1.6):
+- Linux: [linux-human-language](https://github.com/kieltech75-hue/Human/releases/download/v0.1.6/linux-human-language)
+- macOS: [macos-human-language](https://github.com/kieltech75-hue/Human/releases/download/v0.1.6/macos-human-language)
+- Windows setup: [windows-human-language-setup.exe](https://github.com/kieltech75-hue/Human/releases/download/v0.1.6/windows-human-language-setup.exe)
+- Windows helper script: [windows-human-language-installer.bat](https://github.com/kieltech75-hue/Human/releases/download/v0.1.6/windows-human-language-installer.bat)
+
 ### Option 1: Development Installation (for Contributors)
 ```bash
 pip install -e .

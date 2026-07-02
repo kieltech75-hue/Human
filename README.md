@@ -11,6 +11,22 @@ A human-friendly programming language with plain English syntax.
 
 **Human** is an interpreted/compiled language that prioritizes readability and naturalness. It uses plain English constructs with minimal keywords.
 
+## Download Human v0.1.6
+
+The latest release is available at [GitHub Releases v0.1.6](https://github.com/kieltech75-hue/Human/releases/tag/v0.1.6).
+
+Direct download links:
+- Linux: [linux-human-language](https://github.com/kieltech75-hue/Human/releases/download/v0.1.6/linux-human-language)
+- macOS: [macos-human-language](https://github.com/kieltech75-hue/Human/releases/download/v0.1.6/macos-human-language)
+- Windows installer helper: [windows-human-language-installer.bat](https://github.com/kieltech75-hue/Human/releases/download/v0.1.6/windows-human-language-installer.bat)
+- Windows executable: [windows-human-language-setup.exe](https://github.com/kieltech75-hue/Human/releases/download/v0.1.6/windows-human-language-setup.exe)
+
+What’s new in v0.1.6:
+- Native release bundles for Windows, Linux, and macOS
+- PyInstaller-based packaging and a Windows setup helper
+- GitHub Actions workflows for release assets and PyPI publishing
+- Expanded docs, examples, and packaging guidance for web apps and demos
+
 ## File Extension
 
 `.hm` - Human Language files
