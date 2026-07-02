@@ -7,18 +7,15 @@ name = "human-language"
 version = "0.1.6"
 description = "A custom programming language with plain English syntax"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 license = {text = "MIT"}
 authors = [
     {name = "KielTech", email = "info@kieltech.com"}
 ]
 keywords = ["language", "interpreter", "compiler", "programming"]
-dependencies = [
-    "pygls>=1.0.0",
-]
+dependencies = []
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -30,10 +27,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/kieltech75-hue/human-language"
-Repository = "https://github.com/kieltech75-hue/human-language"
-Issues = "https://github.com/kieltech75-hue/human-language/issues"
+Homepage = "https://github.com/kieltech75-hue/Human"
+Repository = "https://github.com/kieltech75-hue/Human"
+Issues = "https://github.com/kieltech75-hue/Human/issues"
 
 [project.scripts]
 human = "human_language.cli:main"
-human-lsp = "human_language.lsp_server:main"
