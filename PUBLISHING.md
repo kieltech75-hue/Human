@@ -1,7 +1,7 @@
 Publishing the Human Language VS Code Extension
 ===============================================
 
-This guide covers steps to publish the `Human Language` VS Code extension to the Visual Studio Marketplace and how to automate publishing with GitHub Actions.
+This guide covers steps to publish the `Human Language` VS Code extension to OpenVSX, the JetBrains Marketplace bundle, and the Visual Studio Marketplace. The Visual Studio Marketplace publish step is kept manual, while OpenVSX publishing is wired into GitHub Actions.
 
 Prerequisites
 - A GitHub repository containing the extension (this repo).
@@ -18,32 +18,32 @@ Create a Personal Access Token (PAT)
 - Create a PAT suitable for `vsce` publishing. You can create this from the Azure DevOps/Visual Studio Marketplace account settings. Copy the token once created.
 - In your GitHub repository settings → Secrets and variables → Actions, add a new secret named `VSCE_TOKEN` with the token value.
 
-Local publish steps
+OpenVSX publishing
+- Add an `OPENVSX_TOKEN` secret to GitHub Actions.
+- The workflow at `.github/workflows/publish.yml` packages the extension and publishes the generated `.vsix` to OpenVSX automatically on release or manual dispatch.
+
+JetBrains Marketplace bundle
+- The workflow also prepares a JetBrains Marketplace upload bundle as a `.zip` artifact for the release.
+- JetBrains Marketplace requires a plugin package that is distinct from a VS Code extension, so this bundle is prepared for the marketplace upload flow rather than being published automatically.
+
+Visual Studio Marketplace (manual)
 1. Install the `vsce` tool:
 
 ```bash
-npm install -g vsce
+npm install -g @vscode/vsce
 ```
 
 2. Build/package the extension:
 
 ```bash
-vsce package
-# produces human-language-<version>.vsix
+vsce package -o human-language-0.1.6.vsix
 ```
 
-3. Publish (use PAT):
+3. Publish manually with your Marketplace PAT:
 
 ```bash
 vsce publish --pat $VSCE_TOKEN
 ```
-
-Automated publishing (GitHub Actions)
-- This repository includes a workflow at `.github/workflows/publish.yml` that runs on new releases and via manual dispatch. It:
-  - Installs `vsce`.
-  - Packages the extension.
-  - Publishes using the `VSCE_TOKEN` secret.
-  - Uploads the generated `.vsix` as a workflow artifact.
 
 Notes & best practices
 - Use semantic versioning in `package.json` and create a GitHub release (tag) to trigger publishing.

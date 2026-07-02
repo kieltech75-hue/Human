@@ -1,8 +1,8 @@
-name: Publish VS Code extension
+name: Publish VS Code extension and marketplaces
 
 on:
   release:
-    types: [created]
+    types: [published]
   workflow_dispatch:
 
 jobs:
@@ -10,23 +10,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - name: Install vsce
+          node-version: '20'
+
+      - name: Install publishing tools
         run: |
-          npm install -g vsce
+          npm install -g @vscode/vsce ovsx
+
       - name: Package extension
         run: |
-          vsce package
-      - name: Publish to Marketplace
+          VERSION="${GITHUB_REF_NAME#v}"
+          vsce package -o "human-language-${VERSION}.vsix"
+
+      - name: Publish to OpenVSX
+        if: ${{ secrets.OPENVSX_TOKEN != '' }}
         env:
-          VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
+          OPENVSX_TOKEN: ${{ secrets.OPENVSX_TOKEN }}
         run: |
-          vsce publish --pat $VSCE_TOKEN
-      - name: Upload VSIX artifact
+          npx ovsx publish "human-language-*.vsix" -p "$OPENVSX_TOKEN"
+
+      - name: Prepare JetBrains Marketplace bundle
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          mkdir -p dist/jetbrains
+          cp "human-language-${VERSION}.vsix" dist/jetbrains/
+          zip -r "dist/jetbrains/human-language-${VERSION}.zip" "dist/jetbrains/human-language-${VERSION}.vsix"
+
+      - name: Upload marketplace artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: human-vsix
-          path: '*.vsix'
+          name: marketplace-artifacts
+          path: |
+            dist/jetbrains/*
+            *.vsix
