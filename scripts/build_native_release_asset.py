@@ -23,7 +23,8 @@ def build_native_binary(platform: str, output_dir: Path, output_name: str) -> No
 
     cmd = [
         sys.executable,
-        "main.py",
+        "-m",
+        "human_language.cli",
         "--package-native",
         str(script),
         "--dist",
