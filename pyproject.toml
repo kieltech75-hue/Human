@@ -8,7 +8,7 @@ version = "0.1.6"
 description = "A custom programming language with plain English syntax"
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "KielTech", email = "info@kieltech.com"}
 ]
@@ -20,7 +20,6 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Interpreters",
     "Topic :: Software Development :: Compilers",
